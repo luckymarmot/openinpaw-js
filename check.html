@@ -1,0 +1,50 @@
+<!DOCTYPE html lang="en">
+<html>
+	<head>
+		<title>My API</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="author" content="Paw Inc.">
+		<meta name="copyright" content="Copyright © 2014 Paw Inc.">
+		<meta name="description" content="We build the most delightful tools to make interaction with REST services seamless and let you focus on developing the apps you dream about.">
+	</head>
+	<body>
+		<h1>Speech.is</h1>
+		<ul>
+			<li><a href="paw://current.document/requests/import?directoryapi_id=mashape.indolering.speech-is">Open in Paw</a></li>
+		</ul>
+
+		<script type="text/javascript">
+		(function(){
+			var aclk = function(e) {
+				var op = function(){
+					paw.open({'deeplink':e.target.href});
+				};
+				if (typeof paw === 'undefined') {
+					(function() {
+						var sc = document.createElement('script');
+						sc.type = 'text/javascript';
+						sc.async = true;
+						sc.src = '/paw.js';
+						// sc.src = 'https://luckymarmot.com/s/oip.js';
+						sc.onload = op;
+						var s = document.getElementsByTagName('script')[0];
+						s.parentNode.insertBefore(sc, s);
+					})();
+				}
+				else {
+					op();
+				}
+				e.preventDefault();
+			};
+			var as = document.getElementsByTagName("A");
+			for (var i=0; i<as.length; i++) {
+				var href = as[i].href;
+				if (href && 0 === href.indexOf('paw://')) {
+					as[i].addEventListener('click', aclk);
+				}
+			}
+		})();
+		</script>
+	</body>
+</html>
