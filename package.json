@@ -1,0 +1,9 @@
+{
+	"name":"OpenInPaw",
+	"version":"1.0.0",
+	"description":"Open in Paw...",
+	"dependencies": {
+		"node-sass":"2.1.1",
+		"node-bourbon":"4.2.1-beta1"
+	}
+}
