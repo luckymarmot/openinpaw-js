@@ -9,21 +9,24 @@ task 'watch', ->
         task_build_sass()
 
 task_build_sass = () ->
-    inputFile = 'paw.sass'
-    outputFile = 'paw.min.css'
+    build_sass_file 'paw.sass', 'paw.css'
+    build_sass_file 'paw.sass', 'paw.min.css', {outputStyle:'compressed'}
 
-    sass.render
-        file: inputFile
-        outputStyle: 'compressed'
-        sourceMap: false
-        success: (result) ->
-            fs.writeFile outputFile, result.css, (err) ->
-                if not err
-                    console.log "  Written #{ outputFile }"
-                else
-                    console.error "Couldn't write in file"
-        error: () ->
-            console.error "Sass Error..."
+build_sass_file = (inputFile, outputFile, opts = {}) ->
+    
+    opts.file = inputFile
+    opts.sourceMap = false
+    opts.includePaths = require('node-bourbon').includePaths
+    opts.success = (result) ->
+        fs.writeFile outputFile, result.css, (err) ->
+            if not err
+                console.log "  Written #{ outputFile }"
+            else
+                console.error "Couldn't write in file"
+    opts.error = (error) ->
+        console.error "Sass Error: #{ error.message }"
+
+    sass.render opts
 
 watch_file = (filename, dir, fn) ->
     filepath = "#{dir}/#{filename}"
