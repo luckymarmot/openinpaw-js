@@ -1,4 +1,4 @@
-@import "compass"
+@import compass
 
 body
 	background-color: #666
@@ -10,54 +10,83 @@ body
 	left: 0px
 	width: 100%
 	height: 100%
-	background-color: rgba(black, 0.3)
+	background-color: rgba(black, 0.5)
 
 .openinpaw-middle
 	display: table-cell
 	vertical-align: middle
 
 .openinpaw
+	+nested-reset()
+
+.openinpaw
 	width: 500px
 	margin-left: auto
 	margin-right: auto
 	overflow: hidden
-
-	&:hover
-		// +animation(scale 1.0s ease-in, slide 2.0s ease)
+	display: block
 
 	text-align: center
 	font-family: 'Open Sans', sans-serif
 
 	background-color: #fff
 	border-radius: 5px
-	+box-shadow(0, 2px, 4px, rgba(black, 0.5))
+	+single-box-shadow(0px, 2px, 4px, 0px, rgba(black, 0.5))
 
-	.openinpaw-hd
+	.clr
+		clear: both
+
+	.hd
 		height: 50px
 		border-bottom: 1px solid #D1D1D1
-		font-size: 21px
+		font-size: 20px
 		font-weight: 300
+		line-height: 40px
 
-		.openinpaw-appicon
+		.appicon
 			width: 35px
 			height: 35px
-			display: block
-			background: inline-image('pawicon.svg')
+			background-image: inline-image('pawicon.svg')
+			background-repeat: no-repeat
+			display: inline-block
+			margin: 8px 5px -11px 0
 
-		.openinpaw-appname
+		.appname
 			font-weight: 400
 
-	.openinpaw-bd
-		min-height: 300px
+	.bd
 		color: #666666
-		padding: 0 15px
-		// +linear-gradient(to top, #fff, #ededed, $fallback: #ffffff);
+		padding: 0 15px 10px 15px
+		background-color: #ededed
+		background-image: linear-gradient(to top, #fff, #ededed)
 
-		.openinpaw-desc
+		.dc
+			padding: 10px 0
+			display: block
 			font-size: 16px
 			font-weight: 400
 
-		.openinpaw-btn-block
+		.scc
+			/* Screenshot Container */
+
+		.sc
+			/* Screenshot */
+
+			width: 300px
+			height: 163px
+			margin: 0 auto -10px auto
+			display: block
+
+			background-image: image-url("mbp.png")
+			background-size: 300px 163px
+
+			@media only screen and (min-devicepixel-ratio: 1.5)
+				background-image: image-url("mbp@2x.png")
+				background-size: 300px 163px
+
+		.btnblk
+			/* Button Blocks */
+
 			width: 50%
 			float: left
 
@@ -76,7 +105,7 @@ body
 				line-height: 36px
 				font-size: 14px
 
-				// +transition(background-color 0.2s ease-in-out 0s);
+				+transition(background-color 0.2s ease-in-out 0s)
 
 			a:link.openinpaw-a-get
 				background-color: #959292
