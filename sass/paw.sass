@@ -1,9 +1,4 @@
-@import bourbon
-
-@mixin box-shadow($top, $left, $blur, $color, $inset:"")
-	-webkit-box-shadow:$top $left $blur $color #{$inset};
-	-moz-box-shadow:$top $left $blur $color #{$inset};
-	box-shadow:$top $left $blur $color #{$inset};
+@import "compass"
 
 body
 	background-color: #666
@@ -28,7 +23,7 @@ body
 	overflow: hidden
 
 	&:hover
-		+animation(scale 1.0s ease-in, slide 2.0s ease)
+		// +animation(scale 1.0s ease-in, slide 2.0s ease)
 
 	text-align: center
 	font-family: 'Open Sans', sans-serif
@@ -56,7 +51,7 @@ body
 		min-height: 300px
 		color: #666666
 		padding: 0 15px
-		+linear-gradient(to top, #fff, #ededed, $fallback: #ffffff);
+		// +linear-gradient(to top, #fff, #ededed, $fallback: #ffffff);
 
 		.openinpaw-desc
 			font-size: 16px
@@ -81,7 +76,7 @@ body
 				line-height: 36px
 				font-size: 14px
 
-				+transition(background-color 0.2s ease-in-out 0s);
+				// +transition(background-color 0.2s ease-in-out 0s);
 
 			a:link.openinpaw-a-get
 				background-color: #959292
