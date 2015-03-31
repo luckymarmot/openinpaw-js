@@ -1,9 +1,98 @@
 @import bourbon
 
+@mixin box-shadow($top, $left, $blur, $color, $inset:"")
+	-webkit-box-shadow:$top $left $blur $color #{$inset};
+	-moz-box-shadow:$top $left $blur $color #{$inset};
+	box-shadow:$top $left $blur $color #{$inset};
+
+body
+	background-color: #666
+
+.openinpaw-outer
+	display: table
+	position: fixed
+	top: 0px
+	left: 0px
+	width: 100%
+	height: 100%
+	background-color: rgba(black, 0.3)
+
+.openinpaw-middle
+	display: table-cell
+	vertical-align: middle
+
 .openinpaw
+	width: 500px
+	margin-left: auto
+	margin-right: auto
+	overflow: hidden
+
+	&:hover
+		+animation(scale 1.0s ease-in, slide 2.0s ease)
+
+	text-align: center
+	font-family: 'Open Sans', sans-serif
+
 	background-color: #fff
 	border-radius: 5px
+	+box-shadow(0, 2px, 4px, rgba(black, 0.5))
 
-	.wd
-		padding-top: 1px
-		+linear-gradient(to top, red, orange);
+	.openinpaw-hd
+		height: 50px
+		border-bottom: 1px solid #D1D1D1
+		font-size: 21px
+		font-weight: 300
+
+		.openinpaw-appicon
+			width: 35px
+			height: 35px
+			display: block
+			background: inline-image('pawicon.svg')
+
+		.openinpaw-appname
+			font-weight: 400
+
+	.openinpaw-bd
+		min-height: 300px
+		color: #666666
+		padding: 0 15px
+		+linear-gradient(to top, #fff, #ededed, $fallback: #ffffff);
+
+		.openinpaw-desc
+			font-size: 16px
+			font-weight: 400
+
+		.openinpaw-btn-block
+			width: 50%
+			float: left
+
+			span
+				font-size: 15px
+				font-weight: 300
+
+			a:link, a:hover, a:visited, a:active
+				text-transform: uppercase
+				text-decoration: none
+				color: white
+				display: block
+				margin: 6px 8px
+				border-radius: 3px
+				border: 1px solid rgba(black, 0.15)
+				line-height: 36px
+				font-size: 14px
+
+				+transition(background-color 0.2s ease-in-out 0s);
+
+			a:link.openinpaw-a-get
+				background-color: #959292
+				&:hover
+					background-color: darken(#959292, 5%)
+
+			a:link.openinpaw-a-open
+				background-color: #4A90E2
+				&:hover
+					background-color: darken(#4A90E2, 5%)
+
+			label
+				font-size: 13px
+				font-weight: 300
