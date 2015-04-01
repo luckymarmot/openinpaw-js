@@ -9,23 +9,25 @@
 		<meta name="description" content="We build the most delightful tools to make interaction with REST services seamless and let you focus on developing the apps you dream about.">
 	</head>
 	<body>
-		<h1>Speech.is</h1>
+		<h1>APIs</h1>
 		<ul>
-			<li><a href="paw://current.document/requests/import?directoryapi_id=mashape.indolering.speech-is">Open in Paw</a></li>
+			<li>Speech.is: <a href="paw://current.document/requests/import?directoryapi_id=mashape.indolering.speech-is" data-paw-api-name="Speech.is">Open in Paw</a></li>
+			<li>Ultimate Weather Forecasts: <a href="paw://current.document/requests/import?directoryapi_id=mashape.george-vustrey.ultimate-weather-forecasts" data-paw-api-name="Ultimate Weather Forecasts">Open in Paw</a></li>
 		</ul>
 
 		<script type="text/javascript">
 		(function(){
 			var aclk = function(e) {
 				var op = function(){
-					paw.open({'deeplink':e.target.href});
+					// paw.open({'deeplink':e.target.href});
+					paw.open({'a':e.target});
 				};
 				if (typeof paw === 'undefined') {
 					(function() {
 						var sc = document.createElement('script');
 						sc.type = 'text/javascript';
 						sc.async = true;
-						sc.src = '/js/paw.api.js';
+						sc.src = 'http://localluckymarmot.com:8080/js/paw.api.js';
 						// sc.src = 'https://luckymarmot.com/s/oip.js';
 						sc.onload = op;
 						var s = document.getElementsByTagName('script')[0];
