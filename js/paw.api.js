@@ -116,7 +116,7 @@
   _showOpenInPaw = function(document_name, pawlink) {
     var _openInPawHTML, _showOuter;
     _openInPawHTML = function(document_name, pawlink) {
-      return "<div class=\"openinpaw-middle\">\n    <div class=\"openinpaw fadein\">\n        <div class=\"hd\">\n            <span class=\"appicon\"></span>\n            Open in <span class=\"appname\">Paw</span>\n        </div>\n        <div class=\"bd\">\n            <span class=\"dc\">Open \"" + document_name + "\" in Paw – the ultimate HTTP client for Mac.</span>\n            <div class=\"scc\"><span class=\"sc\"></span></div>\n            <div class=\"btnblk-container\">\n                <div class=\"btnblk\">\n                    <span>Learn more about Paw</span>\n                    <a href=\"https://luckymarmot.com/paw\" class=\"openinpaw-a-get\" target=\"_blank\">Get Paw</a>\n                </div>\n                <div class=\"btnblk\">\n                    <span>I already have Paw</span>\n                    <a href=\"" + pawlink + "\" class=\"openinpaw-a-open\">Open in Paw</a>\n                    <label>\n                        <input name=\"openinpaw-always-open\" class=\"openinpaw-always-open\" type=\"checkbox\">\n                        Always open in Paw\n                    </span>\n                </div>\n                <div class=\"clr\"></div>\n            </div>\n        </div>\n    </div>\n</div>";
+      return "<div class=\"openinpaw-middle\">\n    <div class=\"openinpaw fadein\">\n        <div class=\"hd\">\n            <span class=\"appicon\"></span>\n            Open in <span class=\"appname\">Paw</span>\n        </div>\n        <div class=\"bd\">\n            <span class=\"dc\">Open \"" + document_name + "\" in Paw – the ultimate HTTP client for Mac.</span>\n            <div class=\"scc\"><span class=\"sc\"></span></div>\n            <div class=\"btnblk-container\">\n                <div class=\"btnblk\">\n                    <span>Learn more about Paw</span>\n                    <a href=\"https://luckymarmot.com/paw\" class=\"openinpaw-a-get\" target=\"_blank\">Get Paw</a>\n                </div>\n                <div class=\"btnblk\">\n                    <span>I already have Paw</span>\n                    <a href=\"" + pawlink + "\" class=\"openinpaw-a-open\">Open in Paw</a>\n                </div>\n                <div class=\"clr\"></div>\n            </div>\n        </div>\n    </div>\n</div>";
     };
     _showOuter = function() {
       var outer;
@@ -129,21 +129,11 @@
       outer.innerHTML = _openInPawHTML(document_name, pawlink);
       outer.getElementsByClassName('openinpaw')[0].className = "openinpaw fadein";
       outer.style.display = "";
-      outer.onclick = function(e) {
+      return outer.onclick = function(e) {
         if (e.target === outer || e.target.parentNode === outer) {
           return _hideOpenInPaw();
         }
       };
-      return outer.getElementsByClassName('openinpaw-a-open')[0].addEventListener('click', function(e) {
-        var chk;
-        chk = outer.getElementsByClassName('openinpaw-always-open')[0];
-        if (chk && chk.checked) {
-          console.log("Set cookie...");
-          _cookies.setItem('_haspaw', 'y', Infinity, null, '.localluckymarmot.com');
-        }
-        e.preventDefault();
-        return false;
-      });
     };
     if (_CSSIsLoaded) {
       return _showOuter();

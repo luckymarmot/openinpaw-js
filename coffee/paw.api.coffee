@@ -120,10 +120,6 @@
                             <div class="btnblk">
                                 <span>I already have Paw</span>
                                 <a href="#{ pawlink }" class="openinpaw-a-open">Open in Paw</a>
-                                <label>
-                                    <input name="openinpaw-always-open" class="openinpaw-always-open" type="checkbox">
-                                    Always open in Paw
-                                </span>
                             </div>
                             <div class="clr"></div>
                         </div>
@@ -144,14 +140,6 @@
             outer.onclick = (e) ->
                 if e.target == outer or e.target.parentNode == outer
                     _hideOpenInPaw()
-            outer.getElementsByClassName('openinpaw-a-open')[0].addEventListener 'click', (e) ->
-                chk = outer.getElementsByClassName('openinpaw-always-open')[0]
-                if chk and chk.checked
-                    console.log "Set cookie..."
-                    _cookies.setItem '_haspaw', 'y', Infinity, null, '.localluckymarmot.com'
-                e.preventDefault()
-                return false
-
 
         # CSS is loaded
         if _CSSIsLoaded
