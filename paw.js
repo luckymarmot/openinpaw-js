@@ -84,9 +84,11 @@
 	 */
 	var _chkHasPaw = function(cb) {
 		var r = _hasPaw();
-		if (null === r) {
+		if (r !== true) {
 			r = confirm('Do you have Paw?');
-			_setHasPaw(r);
+			if (r) {
+				_setHasPaw(true);
+			}
 		}
 		cb(r);
 	}
