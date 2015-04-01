@@ -51,6 +51,30 @@ body
 	border-radius: 5px
 	+single-box-shadow(0px, 2px, 4px, 0px, rgba(black, 0.5))
 
+	&.fadein
+		+animation(fadeinkeyframes linear 0.4s)
+		+animation-iteration-count(1)
+		+animation-timing-function(ease-in-out)
+		+keyframes(fadeinkeyframes)
+			0%
+				transform:  translate(0px, -800px)
+				opacity: 0
+			100%
+				transform:  translate(0px, 0px)
+				opacity: 1
+
+	&.fadeout
+		+animation(fadeoutkeyframes linear 0.4s)
+		+animation-iteration-count(1)
+		+animation-timing-function(ease-in-out)
+		+keyframes(fadeoutkeyframes)
+			0%
+				transform:  translate(0px, 0px)
+				opacity: 1
+			100%
+				transform:  translate(0px, -800px)
+				opacity: 0
+
 	.clr
 		clear: both
 
