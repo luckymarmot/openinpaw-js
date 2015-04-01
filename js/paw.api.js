@@ -17,13 +17,14 @@
   });
   _CSSIsLoaded = false;
   _loadCSS = function(href, onload) {
-    "use strict";
     var ss;
     ss = window.document.createElement("link");
     ss.rel = "stylesheet";
     ss.href = href;
     ss.media = "all";
-    ss.onload = onload;
+    ss.onload = function() {
+      return setTimeout(onload, 100);
+    };
     return document.getElementsByTagName("body")[0].appendChild(ss);
   };
   _showOpenInPaw = function(document_name, pawlink) {

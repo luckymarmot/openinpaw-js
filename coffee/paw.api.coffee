@@ -15,6 +15,7 @@
 			outer = document.getElementById "openinpaw-outer"
 			if outer
 				outer.style.display = "none"
+				# oip = outer.getElementsByClassName('openinpaw')[0]
 				e.preventDefault()
 				return false
 
@@ -29,12 +30,12 @@
 	# 
 
 	_loadCSS = (href, onload) ->
-        "use strict"
         ss = window.document.createElement "link"
         ss.rel = "stylesheet"
         ss.href = href
         ss.media = "all"
-        ss.onload = onload
+        ss.onload = () ->
+        	setTimeout onload, 100
         document.getElementsByTagName("body")[0].appendChild ss
 
 
