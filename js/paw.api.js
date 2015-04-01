@@ -150,7 +150,7 @@
     } else {
       _CSSIsLoaded = true;
       _loadCSS("http://fonts.googleapis.com/css?family=Open+Sans:400,300");
-      return _loadCSS("http://localluckymarmot.com:8080/stylesheets/paw.css", function() {
+      return _loadCSS("https://d1utdfcitf9jel.cloudfront.net/_/openinpaw/stylesheets/paw.css", function() {
         return _showOuter();
       });
     }
