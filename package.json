@@ -1,7 +1,7 @@
 {
-  "name": "OpenInPaw",
+  "name": "openinpaw-js",
   "version": "1.0.0",
-  "description": "Open in Paw...",
+  "description": "A JavaScript snippet to open APIs in Paw.",
   "repository": "git@github.com:luckymarmot/openinpaw-js.git",
   "devDependencies": {
     "del": "^1.1.1",
