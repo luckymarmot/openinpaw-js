@@ -152,7 +152,7 @@
             _loadCSS "http://fonts.googleapis.com/css?family=Open+Sans:400,300"
 
             # Load "paw.css"
-            _loadCSS "https://d1utdfcitf9jel.cloudfront.net/_/openinpaw/stylesheets/paw.css", () ->
+            _loadCSS "https://d3prvxvd1wsnnz.cloudfront.net/css/paw.css", () ->
                 _showOuter()
 
     #
