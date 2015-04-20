@@ -101,7 +101,7 @@
 
     _showOpenInPaw = (document_name, pawlink) ->
 
-        _openInPawHTML = (document_name, pawlink) ->
+        _openInPawHTML = (document_name, pawlink, web_url) ->
             """
             <div class="openinpaw-middle">
                 <div class="openinpaw fadein">
@@ -115,7 +115,7 @@
                         <div class="btnblk-container">
                             <div class="btnblk">
                                 <span>Learn more about Paw</span>
-                                <a href="https://luckymarmot.com/paw" class="openinpaw-a-get" target="_blank">Get Paw</a>
+                                <a href="#{ web_url }" class="openinpaw-a-get" target="_blank">Get Paw</a>
                             </div>
                             <div class="btnblk">
                                 <span>I already have Paw</span>
@@ -128,13 +128,21 @@
             </div>
             """
 
+        _webUrl = () ->
+            return 'https://luckymarmot.com/paw?' +
+                "utm_source=#{ encodeURIComponent(window.location.host) }&" +
+                "utm_medium=openinpaw-js&" +
+                "utm_term=#{ encodeURIComponent(document_name) }&" +
+                "utm_content=#{ encodeURIComponent(document_name) }&" +
+                "utm_campaign=openinpaw-js"
+
         _showOuter = () ->
             outer = document.getElementById "openinpaw-outer"
             if not outer
                 outer = document.createElement "div"
                 outer.id = outer.className = "openinpaw-outer"
                 document.getElementsByTagName("body")[0].appendChild outer
-            outer.innerHTML = _openInPawHTML(document_name, pawlink)
+            outer.innerHTML = _openInPawHTML document_name, pawlink, _webUrl()
             outer.getElementsByClassName('openinpaw')[0].className = "openinpaw fadein"
             outer.style.display = ""
             outer.onclick = (e) ->
