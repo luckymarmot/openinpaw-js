@@ -1,14 +1,14 @@
 ((window) ->
 
-    # 
+    #
     # Make sure `paw` is a singleton
-    # 
+    #
     if window.paw
         return
 
-    # 
+    #
     # Event Listeners
-    # 
+    #
 
     window.addEventListener "keydown", (e) ->
         if e.keyCode == 27
@@ -16,58 +16,58 @@
                 e.preventDefault()
                 return false
 
-    # 
+    #
     # Cookies
-    # 
+    #
 
-    _cookies =
-        getItem: (sKey) ->
-            if not sKey
-                return null
-            return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null
+    # _cookies =
+    #     getItem: (sKey) ->
+    #         if not sKey
+    #             return null
+    #         return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) || null
+    #
+    #     setItem: (sKey, sValue, vEnd, sPath, sDomain, bSecure) ->
+    #         if (not sKey or /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey))
+    #             return false
+    #
+    #         sExpires = ""
+    #
+    #         if vEnd
+    #             switch vEnd.constructor
+    #                 when Number then sExpires = ( if vEnd == Infinity then "; expires=Fri, 31 Dec 9999 23:59:59 GMT" else ("; max-age=" + vEnd) )
+    #                 when String then sExpires = "; expires=" + vEnd
+    #                 when Date then sExpires = "; expires=" + vEnd.toUTCString()
+    #
+    #         document.cookie = encodeURIComponent(sKey) + "=" + encodeURIComponent(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "")
+    #         return true
+    #
+    #     removeItem: (sKey, sPath, sDomain) ->
+    #         if not this.hasItem sKey
+    #             return false
+    #
+    #         document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
+    #         return true
+    #
+    #     hasItem: (sKey) ->
+    #         if not sKey
+    #             return false
+    #         return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie)
+    #
+    #     keys: () ->
+    #         aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/)
+    #         for nIdx in [0..aKeys.length]
+    #             aKeys[nIdx] = decodeURIComponent aKeys[nIdx]
+    #         return aKeys
 
-        setItem: (sKey, sValue, vEnd, sPath, sDomain, bSecure) ->
-            if (not sKey or /^(?:expires|max\-age|path|domain|secure)$/i.test(sKey))
-                return false
-
-            sExpires = ""
-
-            if vEnd
-                switch vEnd.constructor
-                    when Number then sExpires = ( if vEnd == Infinity then "; expires=Fri, 31 Dec 9999 23:59:59 GMT" else ("; max-age=" + vEnd) )
-                    when String then sExpires = "; expires=" + vEnd
-                    when Date then sExpires = "; expires=" + vEnd.toUTCString()
-
-            document.cookie = encodeURIComponent(sKey) + "=" + encodeURIComponent(sValue) + sExpires + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "") + (bSecure ? "; secure" : "")
-            return true
-
-        removeItem: (sKey, sPath, sDomain) ->
-            if not this.hasItem sKey
-                return false
-
-            document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
-            return true
-
-        hasItem: (sKey) ->
-            if not sKey
-                return false
-            return (new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie)
-
-        keys: () ->
-            aKeys = document.cookie.replace(/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g, "").split(/\s*(?:\=[^;]*)?;\s*/)
-            for nIdx in [0..aKeys.length]
-                aKeys[nIdx] = decodeURIComponent aKeys[nIdx]
-            return aKeys
-
-    # 
+    #
     # Private Variables
-    # 
+    #
 
     _CSSIsLoaded = false
 
-    # 
+    #
     # Private Functions
-    # 
+    #
 
     _el = (t, ens, cb, tout) ->
         _called = false
@@ -154,17 +154,17 @@
             # Load "paw.css"
             _loadCSS "https://d1utdfcitf9jel.cloudfront.net/_/openinpaw/stylesheets/paw.css", () ->
                 _showOuter()
-        
-    # 
+
+    #
     # Public Methods
-    # 
+    #
 
     _p = {}
 
-    # 
+    #
     # Opens in Paw with the given parameters object.
     # @param d The parameters.
-    # 
+    #
     _p.open = (d) ->
         # `deeplink` is set
         if d.deeplink
